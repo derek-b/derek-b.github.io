@@ -8,8 +8,12 @@
   <title>{{ site.name }}'s Page</title>
   </head>
   <body>
-  <div id="main" role="main" class="container">
-      {{ content }}
+  <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          {{ content }}
+        </section>
     </div>
+  </div>
   </body>
 </html>
