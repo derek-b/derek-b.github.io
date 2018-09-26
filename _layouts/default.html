@@ -8,6 +8,17 @@
   <title>{{ site.name }}'s Page</title>
   </head>
   <body>
+  <header>
+      <div class="inner">
+        <a href="{{ '/' | absolute_url }}">
+          <h1>Derek Binkley</h1>
+        </a>
+        <h2>Just a little blog about tech</h2>
+        {% if site.github.is_user_page %}
+          <a href="{{ site.github.owner_url }}" class="button"><small>Follow me on</small> GitHub</a>
+        {% endif %}
+      </div>
+    </header>
   <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
