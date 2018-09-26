@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
-  <title>{{ site.name }}'s Page</title>
+  <title>The Online Home of {{ site.name }}</title>
   </head>
   <body>
   <header>
       <div class="inner">
         <a href="{{ '/' | absolute_url }}">
-          <h1>Derek Binkley</h1>
+          <h1>{{ site.name }}</h1>
         </a>
-        <h2>Just a little blog about tech</h2>
+        <h2>{{ site.description }}</h2>
         {% if site.github.is_user_page %}
           <a href="{{ site.github.owner_url }}" class="button"><small>Follow me on</small> GitHub</a>
         {% endif %}
