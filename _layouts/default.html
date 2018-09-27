@@ -15,7 +15,7 @@
         </a>
         <h2>{{ site.description }}</h2>
         {% if site.github.is_user_page %}
-          <a href="{{ site.github.owner_url }}" class="button"><small>Follow me on</small> GitHub</a>
+          <a href="{{ site.github.owner_url }}" class="button"><small>View my work on</small> GitHub</a>
         {% endif %}
       </div>
     </header>
@@ -24,6 +24,9 @@
         <section id="main-content">
           {{ content }}
         </section>
+        <aside id="sidebar">
+        {% include sidebar.html %}
+        </aside>
     </div>
   </div>
   </body>
