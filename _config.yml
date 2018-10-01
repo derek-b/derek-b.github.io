@@ -2,3 +2,8 @@ theme: jekyll-theme-architect
 
 name: Derek Binkley
 description: Engineer, Father, Husband, Conference Speaker
+
+# Includes an icon in the footer for each username you enter
+footer-links:
+    github: derek-b
+    twitter: derekb_wi

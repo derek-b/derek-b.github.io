@@ -2,8 +2,6 @@
 layout: post
 title:  "Entering the 21st Century"
 ---
-# Entering the 21st Century
-
 I have finally started a blog. Why now you may ask? There are a couple of reasons. Now 
 that my youngest son is turning eight I have a little bit more extra time than when the 
 kids were little. So, I'm trying to fill that time without about 4x more activities than 
