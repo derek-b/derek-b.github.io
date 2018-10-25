@@ -14,8 +14,8 @@
           <h1>{{ site.name }}</h1>
         </a>
         <h2>{{ site.description }}</h2>
-        {% if site.github.is_user_page %}
-          <a href="{{ site.github.owner_url }}" class="button"><small>View my work on</small> GitHub</a>
+        {% if site.footer-links.twitter %}
+          <a href="https://twitter{{ site.footer-links.twitter }}" class="button"><small>Follow me on</small> Twitter</a>
         {% endif %}
       </div>
     </header>
