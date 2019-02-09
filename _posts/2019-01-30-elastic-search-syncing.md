@@ -3,7 +3,7 @@ layout: post
 title:  "Keeping Elasticsearch in Sync with a Database"
 ---
 Elasticsearch is a great way to store and search document based data. However it isn't 
-always going to satisfy all of your storage needs. So, you will to find ways to keep
+always going to satisfy all of your storage needs. So, you will want to find ways to keep
 Elasticsearch up to date with the latest data from your database.
 
 ## No fast writes
