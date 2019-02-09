@@ -24,9 +24,9 @@ Elasticsearch installation by allowing it to write data less often.
 
 ```
 POST my-index/doc/_bulk
-{"index": {}}
+{"index": {"_id" : "1"}}
 {"field1":"Value One","field2":"Value Two"}
-{"index": {}}
+{"index": {"_id" : "1"}}
 {"field1":"Another Field Element","field2":"More text here"}
 ```
 
