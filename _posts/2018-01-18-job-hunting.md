@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Job Hunting in Silicon America"
+categories: employment
 ---
 Looking for a new job is stressful and hard. Either you have to perform this in secret 
 so that your current employer doesn't know you're going to leave or you're under the 

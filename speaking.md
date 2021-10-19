@@ -1,6 +1,9 @@
-<h2>
-Upcoming Talks
-</h2>
+---
+layout: about
+title: Speaking
+permalink: /speaking/
+---
+
 <h2>Past Talks</h2>
 <h3>Sunshine PHP</h3>
 <dl>

@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Entering the 21st Century"
+categories: about
 ---
 I have finally started a blog. Why now you may ask? There are a couple of reasons. Now 
 that my youngest son is turning eight I have a little bit more extra time than when the 

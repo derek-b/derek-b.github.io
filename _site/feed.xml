@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-19T15:04:53-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Derek Binkley | Software Engineer, Conference Speaker</title><subtitle>Book Derek to speak at your conference today!</subtitle><entry><title type="html">Keeping Elasticsearch in Sync with a Database</title><link href="http://localhost:4000/search/data/2019/01/30/elastic-search-syncing.html" rel="alternate" type="text/html" title="Keeping Elasticsearch in Sync with a Database" /><published>2019-01-30T00:00:00-06:00</published><updated>2019-01-30T00:00:00-06:00</updated><id>http://localhost:4000/search/data/2019/01/30/elastic-search-syncing</id><content type="html" xml:base="http://localhost:4000/search/data/2019/01/30/elastic-search-syncing.html">&lt;p&gt;Elasticsearch is a great way to store and search document based data. However it isn’t 
+always going to satisfy all of your storage needs. So, you will want to find ways to keep
+Elasticsearch up to date with the latest data from your database.&lt;/p&gt;
+
+&lt;h2 id=&quot;no-fast-writes&quot;&gt;No fast writes&lt;/h2&gt;
+
+&lt;p&gt;The easiest way to keep your Elasticsearch documents up to date would be to make a 
+PUT call with your new document every time you commit a transaction to your database.
+This can have disastrous effects on performance because Elasticsearch is built to read 
+and search data.  A lot of effort has gone in to making
+those run quickly and reliably, at the expense of writing data. Due to 
+the way the data behind an index is stored writing data will take resources away from 
+your reads and searches. So, you’ll need to find another strategy.&lt;/p&gt;
+
+&lt;h2 id=&quot;bulk-api-saves&quot;&gt;Bulk API saves&lt;/h2&gt;
+
+&lt;p&gt;The bulk API is the best way to insert or update data. Not only will you save network
+traffic from multiple POST or PUT calls, you will also minimize the impact on your
+Elasticsearch installation by allowing it to write data less often.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POST my-index/doc/_bulk
+{&quot;index&quot;: {&quot;_id&quot; : &quot;1&quot;}}
+{&quot;field1&quot;:&quot;Value One&quot;,&quot;field2&quot;:&quot;Value Two&quot;}
+{&quot;index&quot;: {&quot;_id&quot; : &quot;1&quot;}}
+{&quot;field1&quot;:&quot;Another Field Element&quot;,&quot;field2&quot;:&quot;More text here&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The bulk API expects one action line followed by a JSON document. In this example we 
+specify the index name and type (document name) in the URI.&lt;/p&gt;
+
+&lt;h2 id=&quot;keying-your-data&quot;&gt;Keying your data&lt;/h2&gt;
+
+&lt;p&gt;You will save yourself some headaches if you keep the database key in Elasticsearch, and 
+not the Elasticsearch key in your database. It is tempting to let Elasticsearch create
+a key for you and then save that key back in your database. This can make the connection
+between your two data stores very clear. I prefer not to do this because it will increase
+the load on your database and will unnecessarily complicate your application. You will
+have created a situation which requires two way syncing between your data sources.  Ideally most
+of your application logic and database will not be aware of the Elasticsearch installation.
+You should consider specifying a key in Elasticsearch and having it be created from a
+unique element(s) of your data such as the primary key.&lt;/p&gt;
+
+&lt;h2 id=&quot;queueing-data&quot;&gt;Queueing data&lt;/h2&gt;
+
+&lt;p&gt;A common strategy is to have your app push your updates to a message queue. Then 
+you can periodically read data from your queue and make a bulk insert. This strategy
+works well when you have the ability to add code in the places where you save data to
+your database. You can even do so asynchronously which will have very little impact on
+your application’s performance. For more information on promises in PHP check out the
+&lt;a href=&quot;https://reactphp.org/promise&quot;&gt;React PHP library&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;copying-sections-of-data&quot;&gt;Copying sections of data&lt;/h2&gt;
+
+&lt;p&gt;The strategy of queueing your data can work well but does require you to make a lot of 
+additions to your application’s code. What if you have multiple applications updating
+your data? Or maybe you have legacy code that would be more difficult to update.
+In these cases you should consider reading your data out of your database in chunks.
+If your database has an update timestamp you could use that to get all data that was 
+updated since your last bulk index. Depending upon the size of your data and how up to date
+you need your search data to be, you could select based upon specific data elements
+and run through your entire data store at a certain interval. I would only do this
+if you are guaranteed a small dataset and downtime each night. Even then this solution
+could grow troublesome as your data grows.&lt;/p&gt;
+
+&lt;h2 id=&quot;wrapping-up&quot;&gt;Wrapping Up&lt;/h2&gt;
+&lt;p&gt;Well, there you have it. Elasticsearch can be a wonderful tool if used for its strengths.
+So, don’t be afraid to get started and keep your data stores and indexes in sync.&lt;/p&gt;</content><author><name></name></author><category term="search" /><category term="data" /><summary type="html">Elasticsearch is a great way to store and search document based data. However it isn’t always going to satisfy all of your storage needs. So, you will want to find ways to keep Elasticsearch up to date with the latest data from your database.</summary></entry><entry><title type="html">Job Hunting in Silicon America</title><link href="http://localhost:4000/employment/2018/01/18/job-hunting.html" rel="alternate" type="text/html" title="Job Hunting in Silicon America" /><published>2018-01-18T00:00:00-06:00</published><updated>2018-01-18T00:00:00-06:00</updated><id>http://localhost:4000/employment/2018/01/18/job-hunting</id><content type="html" xml:base="http://localhost:4000/employment/2018/01/18/job-hunting.html">&lt;p&gt;Looking for a new job is stressful and hard. Either you have to perform this in secret 
+so that your current employer doesn’t know you’re going to leave or you’re under the 
+gun because you’re unemployed and need a paycheck coming in again soon. No matter your 
+situation, finding a development job will be a lot like going back to school. You will 
+have to research and study, answer pop quizzes, timed online tests, and take home exams. 
+To get that far you will need to make a resume that stands out to both people and 
+automated scanners and write an essay (cover letter) to ensure each potential employer 
+that you are the best one for the job and you really, really are passionate about their 
+product which you probably didn’t know existed until you saw them on Indeed or Glassdoor 
+ten minutes ago. I’m not here to give advice about how to write a resume or interview. 
+This is a critique of the technology industry’s hiring practices.&lt;/p&gt;
+
+&lt;p&gt;First let’s start with timed online coding tests. Will these tests ensure you get a good 
+candidate? Maybe. Will these tests cause you to pass on an equally good candidate? 
+Probably. I recently scored a 100% on a timed online programming challenge through 
+TestDome. However, I was 90 seconds away from scoring a 76%. With the clock ticking and 
+me sweating bullets I found a one line tweak that allowed my code to pass all the tests? 
+Unless you’re trying to land a plane with your code it is rare that spending an extra 
+five minutes to get your code completed correctly will make a difference to you. There 
+were two reasons this test was down to the wire.  I finished two sections quickly, however, 
+the allotted time I had for these did not carry over to the third. The wording of the third 
+challenge was unclear and there was nobody to ask. Coding like this does not mimic how you 
+would actually code in your job at all. You will almost always be able to ask questions of 
+your business analyst or product team if you don’t understand what is asked of you. Also, 
+deadlines for code are known weeks or months in advance not hours or minutes.&lt;/p&gt;
+
+&lt;p&gt;Even worse than online coding tests are general aptitude tests. Laszlo Bock, a senior vice 
+president at Google wrote for &lt;a href=&quot;https://www.wired.com/2015/04/hire-like-google/&quot;&gt;Wired Magazine&lt;/a&gt;
+ about how cognitive ability, while an important predictor of success yet is difficult to 
+ accurately test without introducing bias. One such biased test that I was asked to take 
+ was administered through &lt;a href=&quot;https://www.ondemandassessment.com/index.php&quot;&gt;Criteria Pre-Employment Testing&lt;/a&gt;.
+  This test asked personality questions like, “Do you like waiting to the last minute 
+  to get your work done?” I finally made it to the skills section and was given a sample 
+  Windows environment where I had to demonstrate I knew how to open a file and save it 
+  in a folder. At this point I gave up and cancelled my interview. Companies need to 
+  remember that both parties are trying to find a good match and that unnecessary hoops 
+  will filter out the most capable and experienced employees just as much as it will 
+  filter out those that can’t do the job.&lt;/p&gt;
+
+&lt;p&gt;A bias many employers have is towards developers that have lots of code publicly available 
+on GitHub. I understand the appeal of getting to see what a potential employee can create 
+but this greatly limits the pool of qualified candidates. If you’re like me you and have 
+spent 17 years working on a proprietary system you just don’t have the time to keep up 
+with an extra showcase project. Yet, this has nothing to do with whether or not I can 
+do the job.&lt;/p&gt;
+
+&lt;p&gt;So, what works? How does an employer know they’re getting a qualified candidate without 
+scaring away the most talented employees? My new employer used a reasonable and basic at 
+home programming task. This task was basic enough that I didn’t need to spend hours getting 
+a new environment set up but was challenging enough that it took around 30 minutes to 
+complete and probably would have taken less experienced developers closer to an hour. 
+Many employers overdo it with the take home challenges. I have been given challenges 
+that entailed creating an entire system and would need a day or two to finish correctly.
+ Just like the company with the personality test I quickly withdrew my application. In 
+ the case where it worked well the hiring manager went over the task with me and made 
+ sure I understood what was being asked. This was a good sign for me since it gave me a 
+ good insight of what type of boss he would make and allowed me to give a good impression 
+ based upon the type of work I produce.&lt;/p&gt;
+
+&lt;p&gt;So, all in all the technology industry needs to recognize the burden that is put on 
+job candidates so that the hiring process can focus on making a good match between 
+employee and employer and as quickly and easily as possible.&lt;/p&gt;</content><author><name></name></author><category term="employment" /><summary type="html">Looking for a new job is stressful and hard. Either you have to perform this in secret so that your current employer doesn’t know you’re going to leave or you’re under the gun because you’re unemployed and need a paycheck coming in again soon. No matter your situation, finding a development job will be a lot like going back to school. You will have to research and study, answer pop quizzes, timed online tests, and take home exams. To get that far you will need to make a resume that stands out to both people and automated scanners and write an essay (cover letter) to ensure each potential employer that you are the best one for the job and you really, really are passionate about their product which you probably didn’t know existed until you saw them on Indeed or Glassdoor ten minutes ago. I’m not here to give advice about how to write a resume or interview. This is a critique of the technology industry’s hiring practices.</summary></entry><entry><title type="html">User Experience - Just Read the Instructions</title><link href="http://localhost:4000/usability/2017/12/05/just-read-instructions.html" rel="alternate" type="text/html" title="User Experience - Just Read the Instructions" /><published>2017-12-05T00:00:00-06:00</published><updated>2017-12-05T00:00:00-06:00</updated><id>http://localhost:4000/usability/2017/12/05/just-read-instructions</id><content type="html" xml:base="http://localhost:4000/usability/2017/12/05/just-read-instructions.html">&lt;p&gt;Thanksgiving is a time for family, giving thanks, football, and providing technical 
+support for family. This year’s task was helping my mother in law make a purchase on a 
+site dedicated to craft and sewing patterns. My mother in law is not super tech savvy 
+but isn’t a novice by any means. She emails, shops online and does your basic 21st century 
+computing tasks. Unfortunately the website was so poorly designed it was not clear exactly 
+how to complete a purchase or how that product would be delivered once purchased. While I 
+walked her through the process I started thinking about how design decisions can lead to 
+such an awful experience for the user.&lt;/p&gt;
+
+&lt;p&gt;When working on websites and applications there are two themes I hear over and over. The 
+user shouldn’t do something and the user just needs to read the instructions. First of 
+all, if you allow a user to do something on our site some user will end up doing it. So, 
+designing a way to prevent that behavior will make your user happier and get you the end 
+result you desire, e.g. good data or a product purchase. An example of this was a site 
+where a visitor signed up for an appointment. It didn’t make sense to sign up for an 
+appointment in the past but the site allowed it. When reviewing the code with the 
+developer he stated that the user shouldn’t enter a past date so he didn’t handle 
+for it.&lt;/p&gt;
+
+&lt;p&gt;In many meetings with stakeholders and subject matter experts I often get asked if they 
+can add four to five paragraphs of text plus link to multi-page printable instructions. 
+I start my response by asking if they want the text to actually be read or does it just 
+need to be there for legal reasons. Since they usually choose the former option we start 
+working through what they actually want the user to know and when. Why make the user do 
+the work when your site can do it for them. As they interact with the site you can tell 
+them what they need to know if it is actually relevant to them. For example, why show 
+information about the rules of using your product for California residents when the 
+customer is in Maine?&lt;/p&gt;
+
+&lt;p&gt;In both of these cases we moved from thinking about the website as the owners of the site 
+and shifted to thinking about it from a potential visitor. This is such an important way 
+of viewing your site but often gets lost when we insist it is the user’s fault for not 
+using our site properly rather than seeing how we could have helped them.&lt;/p&gt;</content><author><name></name></author><category term="usability" /><summary type="html">Thanksgiving is a time for family, giving thanks, football, and providing technical support for family. This year’s task was helping my mother in law make a purchase on a site dedicated to craft and sewing patterns. My mother in law is not super tech savvy but isn’t a novice by any means. She emails, shops online and does your basic 21st century computing tasks. Unfortunately the website was so poorly designed it was not clear exactly how to complete a purchase or how that product would be delivered once purchased. While I walked her through the process I started thinking about how design decisions can lead to such an awful experience for the user.</summary></entry><entry><title type="html">Primary Keys - Surrogate v. Natural</title><link href="http://localhost:4000/database/2017/11/06/primary-keys.html" rel="alternate" type="text/html" title="Primary Keys - Surrogate v. Natural" /><published>2017-11-06T00:00:00-06:00</published><updated>2017-11-06T00:00:00-06:00</updated><id>http://localhost:4000/database/2017/11/06/primary-keys</id><content type="html" xml:base="http://localhost:4000/database/2017/11/06/primary-keys.html">&lt;p&gt;This Saturday I’ll be speaking about databases at &lt;a href=&quot;http://chippewavalleycodecamp.com/&quot;&gt;Chippewa Valley Code Camp&lt;/a&gt;.
+ So I’ve been thinking a lot about various database topics including how to choose a 
+ primary key for your database table. I am a big proponent of using surrogate keys, 
+ however, on a few occasions I have been convinced otherwise.&lt;/p&gt;
+
+&lt;p&gt;To me, a surrogate key means the primary key of a database that is not related at all to 
+the actual data being saved. This usually ends up being an auto-incremented integer column. 
+I have been using surrogate keys for so long I forget that many developers use natural keys 
+by making a key out of data from the table.&lt;/p&gt;
+
+&lt;p&gt;To make a good primary key you need a unique value that cannot be null. It also needs be 
+unchanging for the row it refers to and a data type that is easily indexed. While there 
+are certainly other options I always choose an integer.&lt;/p&gt;
+
+&lt;p&gt;So, why do we care whether or not this number has meaning? Once you assign it meaning it 
+becomes subject to your business rules or even worse the business rules of another group. 
+There was a time when social security numbers were a common choice of primary key within 
+the United States. The logic was that since the SSN was controlled by the US government 
+everybody would have a unique one that never changed so it would meet all the rules of 
+a good primary key. Not so fast. This design doesn’t take into account non-citizens or 
+victims of identity theft that get assigned new SSNs.  Now for compliance reasons most 
+companies should be encrypting the SSN column so it no longer is useful as a primary key. 
+I have made similar arguments against pretty much any data column that could be used as 
+a key.&lt;/p&gt;
+
+&lt;p&gt;I often caution developers about assigning meaning to a surrogate primary key. I have 
+heard arguments that if the meaning is only behind the scenes it doesn’t break these 
+rules. However, this can still lead to problems. One example I remember seeing is a users 
+table where an ID less than 100 was an administrator, 100 to 999 was an non administrator 
+employee and 1000 and above was a customer. Let’s think about what that means. First, you 
+are limiting yourself to a particular number of employees. Next, your user creation script 
+will be unnecessarily complicated. Also, what happens when a standard employee gets a 
+promotion and now gets administrator rights? You have to re-key that user which is not 
+an easy task. This can get dangerous too because it allows for accidentally assigning 
+admin rights to a user.&lt;/p&gt;
+
+&lt;p&gt;I myself have accidentally turned a surrogate key into a natural key. About fifteen years 
+ago I created a table for user’s of a system. A few years later the business wanted a bar 
+code on reports that a user submitted, so an easy choice was to add the user ID there in 
+bar code form. At this point business users started referring to this ID and at that point 
+I lost control over it. Now, much to my surprise this same application is still running 
+and the business has requested changes to the ID. They want the ID to start at certain 
+values at various times so we can quickly tell when the user created their account. There 
+has also been talk of other numbering schemes that are not necessarily sequential so that 
+this ID can mean even more. In this case the fix isn’t too bad. I have just created a 
+column in our users table to hold this new meaningful number and have left the primary 
+key alone.&lt;/p&gt;
+
+&lt;p&gt;So, is there ever a time when a natural key is a good choice? Sometimes I use them in 
+lookup tables. A common example for me is a U.S. state table. We want more information 
+saved about what happens to mail in a certain state. However, for practical reasons we 
+want to save the two digit state code in our mailing addresses table.&lt;/p&gt;
+
+&lt;p&gt;So, by now even if I haven’t convinced you to always use surrogate keys hopefully you’ll 
+at least be able to make your decision with a little more knowledge and understanding.&lt;/p&gt;</content><author><name></name></author><category term="database" /><summary type="html">This Saturday I’ll be speaking about databases at Chippewa Valley Code Camp. So I’ve been thinking a lot about various database topics including how to choose a primary key for your database table. I am a big proponent of using surrogate keys, however, on a few occasions I have been convinced otherwise.</summary></entry><entry><title type="html">Entering the 21st Century</title><link href="http://localhost:4000/about/2017/10/30/entering-21-century.html" rel="alternate" type="text/html" title="Entering the 21st Century" /><published>2017-10-30T00:00:00-05:00</published><updated>2017-10-30T00:00:00-05:00</updated><id>http://localhost:4000/about/2017/10/30/entering-21-century</id><content type="html" xml:base="http://localhost:4000/about/2017/10/30/entering-21-century.html">&lt;p&gt;I have finally started a blog. Why now you may ask? There are a couple of reasons. Now 
+that my youngest son is turning eight I have a little bit more extra time than when the 
+kids were little. So, I’m trying to fill that time without about 4x more activities than 
+will fit. The main reason is that after almost 20 years in the field of technology I have 
+realized I actually do know a lot of stuff. So, I’ve started speaking at conferences, 
+writing technical articles and now blogging.&lt;/p&gt;
+
+&lt;p&gt;So, what I be blogging about? Mostly programming, database design, security or 
+accessibility. As much as I would like to keep this just on tech topics I have a feeling
+ that in today’s political climate that may eventually spill over into this blog as well.&lt;/p&gt;</content><author><name></name></author><category term="about" /><summary type="html">I have finally started a blog. Why now you may ask? There are a couple of reasons. Now that my youngest son is turning eight I have a little bit more extra time than when the kids were little. So, I’m trying to fill that time without about 4x more activities than will fit. The main reason is that after almost 20 years in the field of technology I have realized I actually do know a lot of stuff. So, I’ve started speaking at conferences, writing technical articles and now blogging.</summary></entry></feed>

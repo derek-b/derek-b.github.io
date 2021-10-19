@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "User Experience - Just Read the Instructions"
+categories: usability
 ---
 
 Thanksgiving is a time for family, giving thanks, football, and providing technical 

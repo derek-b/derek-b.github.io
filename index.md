@@ -1,0 +1,24 @@
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: home
+heading: 'What are you curious about?'
+subheading: 'We can learn together'
+banner: "/assets/images/mic.jpg"
+tags: [table]
+---
+
+## Speaking
+
+### Upcoming
+None
+
+### Recent Appearances
+Voices of the ElePHPant  - I had a great conversation with [Cal Evans](https://twitter.com/CalEvans) for his podcast 
+"Voices of the ElePHPant". Please check it out at (https://t.co/VrxGJyiRz8).
+
+## Writing
+### Print
+php[arch]
+### Blogging

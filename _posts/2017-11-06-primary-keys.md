@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Primary Keys - Surrogate v. Natural"
+categories: database
 ---
 
 This Saturday I'll be speaking about databases at [Chippewa Valley Code Camp](http://chippewavalleycodecamp.com/).
