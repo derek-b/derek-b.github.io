@@ -5,6 +5,56 @@ permalink: /speaking/
 ---
 
 <h2>Past Talks</h2>
+<h3>GIDS India Live 2021</h3>
+<dl>
+    <dt>
+        <a href="https://www.developersummit.com/speaker/derek-binkley"  target="_blank">
+            Teaching through Code Review
+        </a>
+    </dt>
+    <dd>Apr. 28, 2021</dd>
+</dl>
+
+<h3>iJS London 2021</h3>
+<dl>
+    <dt>
+        <a href="https://javascript-conference.com/london/program-london/"  target="_blank">
+            Encore, encore: Combining Vue.js and Symfony into a full stack application
+        </a>
+    </dt>
+    <dd>Apr. 19, 2021</dd>
+</dl>
+
+<h3>Serverless Architecture Con - The Hague 2021</h3>
+<dl>
+    <dt>
+        <a href="https://serverless-architecture.io/thehague/program-thehague/"  target="_blank">
+            Build Your First Serverless API with AWS
+        </a>
+    </dt>
+    <dd>Apr. 14, 2021</dd>
+</dl>
+
+<h3>We Are Developers</h3>
+<dl>
+    <dt>
+        <a href="https://serverless-architecture.io/thehague/program-thehague/"  target="_blank">
+            Add Location-Based Searching to your Site with Elasticsearch
+        </a>
+    </dt>
+    <dd>Nov. 20, 2020</dd>
+</dl>
+
+<h3>DevFest WI</h3>
+<dl>
+    <dt>
+        <a href="https://devfestwi.com/schedule/"  target="_blank">
+            Teaching through Code Review
+        </a>
+    </dt>
+    <dd>Oct. 24, 2020</dd>
+</dl>
+
 <h3>Sunshine PHP</h3>
 <dl>
     <dt>
