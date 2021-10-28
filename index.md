@@ -16,9 +16,9 @@ None
 
 ### Recent Appearances
 Voices of the ElePHPant  - I had a great conversation with [Cal Evans](https://twitter.com/CalEvans) for his podcast 
-"Voices of the ElePHPant". Please check it out at (https://t.co/VrxGJyiRz8).
+[Voices of the ElePHPant] (https://t.co/VrxGJyiRz8).
 
 ## Writing
 ### Print
-php[arch]
+You can see some of my articles in [PHP Architect](https://www.phparch.com/community/derek-binkley/).
 ### Blogging
