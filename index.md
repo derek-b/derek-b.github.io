@@ -12,6 +12,7 @@ tags: [table]
 ## Speaking
 
 ### Upcoming
+JavaScript Global Summit '22
 
 ### Recent Appearances
 Voices of the ElePHPant  - I had a great conversation with [Cal Evans](https://twitter.com/CalEvans) for his podcast 
