@@ -12,11 +12,11 @@ tags: [table]
 ## Speaking
 
 ### Upcoming
-Pardon the Disruption, keynote at [International JavaScript Conference London](https://javascript-conference.com/london/program-london/)
 
 ### Recent Appearances
 Voices of the ElePHPant  - I had a great conversation with [Cal Evans](https://twitter.com/CalEvans) for his podcast 
 [Voices of the ElePHPant] (https://t.co/VrxGJyiRz8).
+Pardon the Disruption, keynote at [International JavaScript Conference London](https://javascript-conference.com/london/program-london/)
 
 ## Writing
 ### Print
